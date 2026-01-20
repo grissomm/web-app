@@ -158,6 +158,8 @@ app.post('/editDrama/:id', (req, res) => {
   res.redirect('/dramas');
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
+const server = app.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
 });
+
+module.exports = server;
