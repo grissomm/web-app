@@ -1,20 +1,37 @@
-const request = require("supertest");
-const server = require("../app");
+const http = require("http");
+const assert = require("assert");
 
-afterAll(done => {
-  server.close(done);
-});
+// Import your app (server must be exported)
+const server = require("./app");
 
-test("Server should start successfully", () => {
-  expect(server).toBeDefined();
-});
+function testRoute(path, name, done) {
+  http.get(
+    { hostname: "localhost", port: 3000, path },
+    (res) => {
+      try {
+        assert.strictEqual(res.statusCode, 200);
+        console.log(`✓ PASS: ${name}`);
+        done();
+      } catch (err) {
+        console.error(`✗ FAIL: ${name}`);
+        server.close();
+        process.exit(1);
+      }
+    }
+  ).on("error", () => {
+    console.error(`✗ ERROR: ${name}`);
+    server.close();
+    process.exit(1);
+  });
+}
 
-test("GET / should return welcome page", async () => {
-  const response = await request(server).get("/");
-  expect(response.statusCode).toBe(200);
-});
+console.log("Running automated CI tests...");
 
-test("GET /dramas should return drama list", async () => {
-  const response = await request(server).get("/dramas");
-  expect(response.statusCode).toBe(200);
+// Run test cases in order
+testRoute("/", "Home Page", () => {
+  testRoute("/dramas", "Drama Page", () => {
+    console.log("✓ ALL TESTS PASSED");
+    server.close();
+    process.exit(0);
+  });
 });
