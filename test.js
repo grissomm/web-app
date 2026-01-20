@@ -1,24 +1,20 @@
-const http = require("http");
-const assert = require("assert");
+const request = require("supertest");
+const server = require("../app");
 
-const server = require("./app");
+afterAll(done => {
+  server.close(done);
+});
 
-function testHomePage() {
-  http.get("http://localhost:3000", (res) => {
-    try {
-      assert.strictEqual(res.statusCode, 200);
-      console.log("✓ Test Passed: Home page returns 200");
-      server.close();
-    } catch (err) {
-      console.error("✗ Test Failed");
-      server.close();
-      process.exit(1);
-    }
-  }).on("error", (err) => {
-    console.error("✗ Server error", err);
-    server.close();
-    process.exit(1);
-  });
-}
+test("Server should start successfully", () => {
+  expect(server).toBeDefined();
+});
 
-testHomePage();
+test("GET / should return welcome page", async () => {
+  const response = await request(server).get("/");
+  expect(response.statusCode).toBe(200);
+});
+
+test("GET /dramas should return drama list", async () => {
+  const response = await request(server).get("/dramas");
+  expect(response.statusCode).toBe(200);
+});
