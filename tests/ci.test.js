@@ -2,7 +2,7 @@ const http = require("http");
 const assert = require("assert");
 
 // Import your app (server must be exported)
-const server = require("app.js");
+const server = require("./app");
 
 function testRoute(path, name, done) {
   http.get(
