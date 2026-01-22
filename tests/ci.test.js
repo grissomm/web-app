@@ -1,37 +1,22 @@
 const http = require("http");
-const assert = require("assert");
+const server = require("../app.js"); // make sure your app exports the server
 
-// Import your app (server must be exported)
-const server = require("./app");
-
-function testRoute(path, name, done) {
-  http.get(
-    { hostname: "localhost", port: 3000, path },
-    (res) => {
-      try {
-        assert.strictEqual(res.statusCode, 200);
-        console.log(`✓ PASS: ${name}`);
-        done();
-      } catch (err) {
-        console.error(`✗ FAIL: ${name}`);
-        server.close();
-        process.exit(1);
-      }
-    }
-  ).on("error", () => {
-    console.error(`✗ ERROR: ${name}`);
-    server.close();
-    process.exit(1);
+describe("Web app routes", () => {
+  afterAll(() => {
+    server.close(); // close server after all tests
   });
-}
 
-console.log("Running automated CI tests...");
+  test("Home Page should return 200", (done) => {
+    http.get("http://localhost:3000/", (res) => {
+      expect(res.statusCode).toBe(200);
+      done();
+    });
+  });
 
-// Run test cases in order
-testRoute("/", "Home Page", () => {
-  testRoute("/dramas", "Drama Page", () => {
-    console.log("✓ ALL TESTS PASSED");
-    server.close();
-    process.exit(0);
+  test("Drama Page should return 200", (done) => {
+    http.get("http://localhost:3000/dramas", (res) => {
+      expect(res.statusCode).toBe(200);
+      done();
+    });
   });
 });
