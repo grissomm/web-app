@@ -22,9 +22,3 @@ jobs:
 
     - name: Run CI test script
       run: node ci_test.js
-
-    - name: Deploy with Ansible
-      uses: dawidd6/action-ansible-playbook@v2
-      with:
-        playbook: ansible/deploy.yml
-        inventory: 
