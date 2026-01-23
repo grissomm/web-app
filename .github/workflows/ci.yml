@@ -14,6 +14,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Stop and remove old container if exists
+      run: |
+            docker stop drama-app || true
+            docker rm drama-app || true
+
     - name: Build Docker image
       run: docker build --no-cache -t drama-app .
 
