@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 
 let dramas = [
   { id:1, title: 'Hospital Playlist', episode:12, genre: 'Medical', country: 'Korean', 
-    image: 'https://www.bornincolour.com/pub/media/mageplaza/blog/post/image/h/o/hospital-playlist-official-poster.jpg'},
+    image: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e8/Hospital_Playlist.jpg/250px-Hospital_Playlist.jpg'},
   { id:2, title: 'Falling into Your Smile', episode:31, genre: 'Gaming', country: 'China', 
     image:'https://hivemindedness.com/wp-content/uploads/2022/09/falling-into-your-smile-promo.jpg'},
   { id:3, title: 'Weak Hero Class', episode:8, genre: 'School', country: 'Korean', 
