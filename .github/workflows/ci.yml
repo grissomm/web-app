@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Build Docker image
-      run: docker build -t drama-app .
+      run: docker build --no-cache -t drama-app .
 
     - name: Run Docker container
       run: docker run -d -p 3000:3000 --name drama-app drama-app
