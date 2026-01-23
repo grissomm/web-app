@@ -18,6 +18,8 @@
         source: build 
         build: 
           path: ../             # path to your Dockerfile
+          pull: yes
+          nocache: yes
         state: present
 
     - name: Start Docker container
