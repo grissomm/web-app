@@ -10,11 +10,14 @@
       docker_container:
         name: drama-app
         state: absent
+        force_kill: yes
 
     - name: Build Docker image
       docker_image:
         name: drama-app
-        path: ../             # path to your Dockerfile
+        source: build 
+        build: 
+          path: ../             # path to your Dockerfile
         state: present
 
     - name: Start Docker container
