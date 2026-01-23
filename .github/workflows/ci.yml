@@ -18,7 +18,13 @@ jobs:
       run: docker build -t drama-app .
 
     - name: Run Docker container
-      run: docker run -d -p 3000:3000 drama-app
+      run: docker run -d -p 3000:3000 --name drama-app drama-app
 
     - name: Run CI test script
       run: node ci_test.js
+
+    - name: Deploy with Ansible
+      uses: dawidd6/action-ansible-playbook@v2
+      with:
+        playbook: ansible/deploy.yml
+        inventory: 
