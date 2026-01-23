@@ -1,0 +1,27 @@
+---
+- name: Deploy Node.js Docker app
+  hosts: localhost       # run on this machine
+  become: yes            # for Docker commands requiring sudo
+  tasks:
+
+    - name: Stop old container if running
+      docker_container:
+        name: drama-app
+        state: absent
+
+    - name: Build Docker image
+      docker_image:
+        name: drama-app
+        path: ../             # path to your Dockerfile
+        state: present
+
+    - name: Start Docker container
+      docker_container:
+        name: drama-app
+        image: drama-app:latest
+        state: started
+        ports:
+          - "3000:3000"
+
+    - name: Run CI test script
+      command: node ../ci_test.js
