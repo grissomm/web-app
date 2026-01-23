@@ -2,6 +2,8 @@
 - name: Deploy Node.js Docker app
   hosts: localhost       # run on this machine
   become: yes            # for Docker commands requiring sudo
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
 
     - name: Stop old container if running
