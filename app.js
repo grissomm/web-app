@@ -17,6 +17,8 @@ let dramas = [
     image:'https://hivemindedness.com/wp-content/uploads/2022/09/falling-into-your-smile-promo.jpg'},
   { id:3, title: 'Weak Hero Class', episode:8, genre: 'School', country: 'Korean', 
     image:'https://i.mydramalist.com/pq2lr_4f.jpg'}
+  { id:4, title: 'Meteor Garden', episode:49, genre: 'Romance', country: 'Taiwan', 
+    image:'https://upload.wikimedia.org/wikipedia/en/2/2a/Meteor_Garden_2018_Poster.jpg'}
 ];
 
 let ratings = [];
