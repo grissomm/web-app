@@ -1,31 +1,30 @@
-name: CI Pipeline with Docker
+name: Update Localhost Website
 
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
-  build-test:
+  update-localhost:
     runs-on: self-hosted
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-    
     - name: Pull latest code
+      shell: pwsh
       run: git -C "C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app" pull origin main
 
-    - name: Stop old Docker container if running
+    - name: Stop old Docker container if exists
+      shell: pwsh
       run: |
-        docker stop drama-app -ErrorAction SilentlyContinue
-        docker rm drama-app -ErrorAction SilentlyContinue
+        try { docker stop drama-app } catch {}
+        try { docker rm drama-app } catch {}
 
     - name: Build Docker image
+      shell: pwsh
       run: docker build --no-cache -t drama-app .
 
     - name: Run Docker container
+      shell: pwsh
       run: docker run -d -p 3000:3000 --name drama-app drama-app
 
     - name: Run CI test script
