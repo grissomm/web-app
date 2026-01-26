@@ -16,8 +16,8 @@ jobs:
     - name: Stop old Docker container if exists
       shell: powershell
       run: |
-        try { & docker stop drama-app | Out-Null } catch {}
-        try { & docker rm drama-app | Out-Null } catch {}
+        try { & docker stop drama-app } catch {}
+        try { & docker rm drama-app } catch {}
 
     - name: Build Docker image
       shell: powershell
