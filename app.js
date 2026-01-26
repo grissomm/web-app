@@ -17,7 +17,7 @@ let dramas = [
     image:'https://hivemindedness.com/wp-content/uploads/2022/09/falling-into-your-smile-promo.jpg'},
   { id:3, title: 'Weak Hero Class', episode:8, genre: 'School', country: 'Korean', 
     image:'https://i.mydramalist.com/pq2lr_4f.jpg'},
-  { id:4, title: 'A Love So Beautifuls', episode:24, genre: 'School', country: 'China', 
+  { id:4, title: 'A Love So Beautiful', episode:24, genre: 'School', country: 'China', 
     image:'https://m.media-amazon.com/images/M/MV5BMTY4ZGI3ZTItNzYyZi00ZjQyLWI3YjItY2E3Y2JlZTI0MjA0XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_FMjpg_UX1000_.jpg' }
 ];
 
