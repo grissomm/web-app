@@ -29,7 +29,3 @@ jobs:
 
     - name: Run CI test script
       run: node ci_test.js
-    
-    - name: Cleanup old Docker images
-      shell: powershell
-      run: docker image prune -f
