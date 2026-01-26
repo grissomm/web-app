@@ -13,6 +13,14 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+    
+    - name: Pull latest code
+      run: git -C "C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app" pull origin main
+
+    - name: Stop old Docker container if running
+      run: |
+        docker stop drama-app || true
+        docker rm drama-app || true
 
     - name: Build Docker image
       run: docker build --no-cache -t drama-app .
