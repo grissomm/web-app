@@ -1,0 +1,4 @@
+[2026-01-26 06:11:55Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2026-01-26 06:11:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:11:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:11:55Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.credentials'
