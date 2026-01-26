@@ -10,21 +10,21 @@ jobs:
 
     steps:
     - name: Pull latest code
-      shell: pwsh
+      shell: powershell
       run: git -C "C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app" pull origin main
 
     - name: Stop old Docker container if exists
-      shell: pwsh
+      shell: powershell
       run: |
         try { docker stop drama-app } catch {}
         try { docker rm drama-app } catch {}
 
     - name: Build Docker image
-      shell: pwsh
+      shell: powershell
       run: docker build --no-cache -t drama-app .
 
     - name: Run Docker container
-      shell: pwsh
+      shell: powershell
       run: docker run -d -p 3000:3000 --name drama-app drama-app
 
     - name: Run CI test script
