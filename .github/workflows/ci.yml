@@ -21,7 +21,7 @@ jobs:
 
     - name: Build Docker image
       shell: powershell
-      run: docker build --no-cache -t drama-app .
+      run: docker build --no-cache -t drama-app "C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app"
 
     - name: Run Docker container
       shell: powershell
