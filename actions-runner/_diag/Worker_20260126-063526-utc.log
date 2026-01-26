@@ -1,0 +1,3578 @@
+[2026-01-26 06:35:26Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2026-01-26 06:35:26Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:26Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:26Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.credentials'
+[2026-01-26 06:35:26Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:26Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:26Z INFO HostContext] Well known config file 'Runner': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.runner'
+[2026-01-26 06:35:26Z INFO Worker] Version: 2.331.0
+[2026-01-26 06:35:26Z INFO Worker] Commit: 39f6c643d3032f8795fa71f1482731ca90c8e038
+[2026-01-26 06:35:26Z INFO Worker] Culture: en-SG
+[2026-01-26 06:35:26Z INFO Worker] UI Culture: en-US
+[2026-01-26 06:35:26Z INFO Worker] Waiting to receive the job message from the channel.
+[2026-01-26 06:35:26Z INFO ProcessChannel] Receiving message of length 20324, with hash 'c1a378cbf6108c647b83f0b33713511e7293f22210a708d42515291bf147de00'
+[2026-01-26 06:35:26Z INFO Worker] Message received.
+[2026-01-26 06:35:27Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/ci.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v4",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 14,
+        "col": 13,
+        "lit": "Checkout repository"
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "200b0512-c2f5-4657-9f44-8f8c5d391e16",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 17,
+        "col": 13,
+        "lit": "Pull latest code"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 18,
+              "col": 12,
+              "lit": "git -C \"C:\\Users\\24049601\\Downloads\\RP\\Semester 4\\Mon - Tues DevOps Fundamentals - C270\\Team2_Webapp\\web-app\" pull origin main"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "60abaa73-6541-4eb7-82e8-d75f706900dd",
+      "name": "__run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 20,
+        "col": 13,
+        "lit": "Stop old Docker container if running"
+      },
+      "contextName": "__run_2",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 21,
+              "col": 12,
+              "lit": "docker stop drama-app || true\ndocker rm drama-app || true\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "c7669725-3d89-4214-bf0a-e7db0fff6bd6",
+      "name": "__run_2"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 25,
+        "col": 13,
+        "lit": "Build Docker image"
+      },
+      "contextName": "__run_3",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 26,
+              "col": 12,
+              "lit": "docker build --no-cache -t drama-app ."
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "0f417c0e-3fb8-451c-ab4b-621365cf1720",
+      "name": "__run_3"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 28,
+        "col": 13,
+        "lit": "Run Docker container"
+      },
+      "contextName": "__run_4",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 29,
+              "col": 12,
+              "lit": "docker run -d -p 3000:3000 --name drama-app drama-app"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "2fe3801e-e305-4223-9ec9-783d24b22d94",
+      "name": "__run_4"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 31,
+        "col": 13,
+        "lit": "Run CI test script"
+      },
+      "contextName": "__run_5",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 32,
+              "col": 12,
+              "lit": "node ci_test.js"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "73c5faac-7f85-4803-a436-3651dc3b3566",
+      "name": "__run_5"
+    }
+  ],
+  "variables": {
+    "Actions.EnableHttpRedirects": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode16Action": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "DistributedTask.DetailUntarFailure": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnableJobServerQueueTelemetry": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode16": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode20": {
+      "value": "true"
+    },
+    "DistributedTask.LogTemplateErrorsAsDebugMessages": {
+      "value": "true"
+    },
+    "DistributedTask.MarkJobAsFailedOnWorkerCrash": {
+      "value": "true"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.UseActionArchiveCache": {
+      "value": "true"
+    },
+    "DistributedTask.UseWhich2": {
+      "value": "true"
+    },
+    "RunService.FixEmbeddedIssues": {
+      "value": "true"
+    },
+    "actions_add_check_run_id_to_job_context": {
+      "value": "true"
+    },
+    "actions_container_action_runner_temp": {
+      "value": "true"
+    },
+    "actions_display_helpful_actions_download_errors": {
+      "value": "true"
+    },
+    "actions_runner_compare_workflow_parser": {
+      "value": "false"
+    },
+    "actions_set_orchestration_id_env_for_actions": {
+      "value": "false"
+    },
+    "actions_skip_retry_complete_job_upon_known_errors": {
+      "value": "true"
+    },
+    "actions_uses_cache_service_v2": {
+      "value": "true"
+    },
+    "github_token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.from_run_service": {
+      "value": "true"
+    },
+    "system.github.job": {
+      "value": "build-test"
+    },
+    "system.github.launch_endpoint": {
+      "value": "https://launch.actions.githubusercontent.com"
+    },
+    "system.github.results_endpoint": {
+      "value": "https://results-receiver.actions.githubusercontent.com/"
+    },
+    "system.github.results_upload_with_sdk": {
+      "value": "true"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Contents\":\"read\",\"Metadata\":\"read\",\"Packages\":\"read\"}"
+    },
+    "system.orchestrationId": {
+      "value": "56fa665e-273f-4d6a-9ed0-30516896eef0.build-test.__default"
+    },
+    "system.phaseDisplayName": {
+      "value": "build-test"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "system.runnerEnvironment": {
+      "value": "self-hosted"
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "RunnerJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "actions",
+    "version": 0,
+    "planId": "56fa665e-273f-4d6a-9ed0-30516896eef0",
+    "planGroup": null,
+    "artifactUri": null,
+    "artifactLocation": null,
+    "definition": null,
+    "owner": null
+  },
+  "timeline": {
+    "id": "56fa665e-273f-4d6a-9ed0-30516896eef0",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "c6036803-160d-567f-98f6-89aea3fbd183",
+  "jobDisplayName": "build-test",
+  "jobName": "__default",
+  "requestId": 0,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "",
+          "ServerName": "",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/9OxPil5YIoMgxPByg8XMaKekMEIwt1hb3NG0APAp4k8qaAI2Oe/",
+          "FeedStreamUrl": "wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock",
+          "ResultsServiceUrl": "https://results-receiver.actions.githubusercontent.com/",
+          "PipelinesServiceUrl": "https://pipelinesghubeus2.actions.githubusercontent.com/9OxPil5YIoMgxPByg8XMaKekMEIwt1hb3NG0APAp4k8qaAI2Oe/",
+          "GenerateIdTokenUrl": "",
+          "ConnectivityChecks": "[\"https://broker.actions.githubusercontent.com/health\",\"https://token.actions.githubusercontent.com/ready\"]"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://run-actions-1-azure-eastus.actions.githubusercontent.com/85/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": "***"
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/main"
+        },
+        {
+          "k": "sha",
+          "v": "bcf15c355b1b0f42748064ba969f8bff24611d2d"
+        },
+        {
+          "k": "repository",
+          "v": "grissomm/web-app"
+        },
+        {
+          "k": "repository_owner",
+          "v": "grissomm"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "213001881"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/grissomm/web-app.git"
+        },
+        {
+          "k": "run_id",
+          "v": "21348540577"
+        },
+        {
+          "k": "run_number",
+          "v": "26"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "private"
+        },
+        {
+          "k": "actor_id",
+          "v": "219142589"
+        },
+        {
+          "k": "actor",
+          "v": "eyen20"
+        },
+        {
+          "k": "workflow",
+          "v": "CI Pipeline with Docker"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "main"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "bcf15c355b1b0f42748064ba969f8bff24611d2d"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "98e374a15a04b1eb3ae7ef6679b17cdace80cef8"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "24049601@myrp.edu.sg"
+                              },
+                              {
+                                "k": "name",
+                                "v": "eyen20"
+                              },
+                              {
+                                "k": "username",
+                                "v": "eyen20"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "24049601@myrp.edu.sg"
+                              },
+                              {
+                                "k": "name",
+                                "v": "eyen20"
+                              },
+                              {
+                                "k": "username",
+                                "v": "eyen20"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "bcf15c355b1b0f42748064ba969f8bff24611d2d"
+                        },
+                        {
+                          "k": "message",
+                          "v": "Added stop and remove old docker container"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2026-01-26T14:35:14+08:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "4a8458baafe124a7509907f7eaf4f9d9cc0f3101"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/grissomm/web-app/commit/bcf15c355b1b0f42748064ba969f8bff24611d2d"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/grissomm/web-app/compare/98e374a15a04...bcf15c355b1b"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "24049601@myrp.edu.sg"
+                          },
+                          {
+                            "k": "name",
+                            "v": "eyen20"
+                          },
+                          {
+                            "k": "username",
+                            "v": "eyen20"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "24049601@myrp.edu.sg"
+                          },
+                          {
+                            "k": "name",
+                            "v": "eyen20"
+                          },
+                          {
+                            "k": "username",
+                            "v": "eyen20"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "bcf15c355b1b0f42748064ba969f8bff24611d2d"
+                    },
+                    {
+                      "k": "message",
+                      "v": "Added stop and remove old docker container"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2026-01-26T14:35:14+08:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "4a8458baafe124a7509907f7eaf4f9d9cc0f3101"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/grissomm/web-app/commit/bcf15c355b1b0f42748064ba969f8bff24611d2d"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "24049601@myrp.edu.sg"
+                    },
+                    {
+                      "k": "name",
+                      "v": "eyen20"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/main"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/grissomm/web-app.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1768897865.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": null
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "grissomm/web-app"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/grissomm/web-app.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": false
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": false
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/grissomm/web-app"
+                    },
+                    {
+                      "k": "id",
+                      "v": 1138092988.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "JavaScript"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "web-app"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOQ9XrvA"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/213001881?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "grissomlee10@gmail.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/grissomm/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/grissomm/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/grissomm/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/grissomm/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/grissomm"
+                          },
+                          {
+                            "k": "id",
+                            "v": 213001881.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "grissomm"
+                          },
+                          {
+                            "k": "name",
+                            "v": "grissomm"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "U_kgDODLImmQ"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/grissomm/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/grissomm/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/grissomm/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/grissomm/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/grissomm/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/grissomm"
+                          },
+                          {
+                            "k": "user_view_type",
+                            "v": "public"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": true
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1769409320.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 7981.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:grissomm/web-app.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/grissomm/web-app"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/grissomm/web-app/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2026-01-26T06:24:37Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/repos/grissomm/web-app"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "private"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/219142589?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/eyen20/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/eyen20/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/eyen20/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/eyen20/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/eyen20"
+                    },
+                    {
+                      "k": "id",
+                      "v": 219142589.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "eyen20"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "U_kgDODQ_ZvQ"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/eyen20/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/eyen20/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/eyen20/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/eyen20/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/eyen20/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/eyen20"
+                    },
+                    {
+                      "k": "user_view_type",
+                      "v": "public"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "workflow_ref",
+          "v": "grissomm/web-app/.github/workflows/ci.yml@refs/heads/main"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "bcf15c355b1b0f42748064ba969f8bff24611d2d"
+        },
+        {
+          "k": "repository_id",
+          "v": "1138092988"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "eyen20"
+        }
+      ]
+    },
+    "inputs": {
+      "t": 2
+    },
+    "job": {
+      "t": 2,
+      "d": [
+        {
+          "k": "check_run_id",
+          "v": 61440529049.0
+        }
+      ]
+    },
+    "matrix": null,
+    "needs": {
+      "t": 2
+    },
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    },
+    "vars": {
+      "t": 2
+    }
+  },
+  "billingOwnerId": "U_kgDODLImmQ"
+}
+[2026-01-26 06:35:27Z INFO JobRunner] Job ID c6036803-160d-567f-98f6-89aea3fbd183
+[2026-01-26 06:35:27Z INFO ConfigurationStore] currentAssemblyLocation: C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin\Runner.Worker.dll
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO ConfigurationStore] binPath: C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO ConfigurationStore] RootFolder: C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known config file 'Runner': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.runner'
+[2026-01-26 06:35:27Z INFO ConfigurationStore] ConfigFilePath: C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.runner
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known config file 'MigratedRunner': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.runner_migrated'
+[2026-01-26 06:35:27Z INFO ConfigurationStore] MigratedConfigFilePath: C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.runner_migrated
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.credentials'
+[2026-01-26 06:35:27Z INFO ConfigurationStore] CredFilePath: C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.credentials
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known config file 'MigratedCredentials': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.credentials_migrated'
+[2026-01-26 06:35:27Z INFO ConfigurationStore] MigratedCredFilePath: C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.credentials_migrated
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known config file 'Service': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.service'
+[2026-01-26 06:35:27Z INFO ConfigurationStore] ServiceConfigFilePath: C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.service
+[2026-01-26 06:35:27Z INFO ConfigurationStore] Read setting file: 397 chars
+[2026-01-26 06:35:27Z INFO JobRunner] Initializing launch client
+[2026-01-26 06:35:27Z INFO JobServerQueue] Initializing results client
+[2026-01-26 06:35:27Z INFO ResultServer] Creating websocket client ...wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock
+[2026-01-26 06:35:27Z INFO ResultServer] Attempting to start websocket client with delay 00:00:00.
+[2026-01-26 06:35:27Z INFO JobServerQueue] Start process web console line queue.
+[2026-01-26 06:35:27Z INFO JobServerQueue] Start process file upload queue.
+[2026-01-26 06:35:27Z INFO JobServerQueue] Start results file upload queue.
+[2026-01-26 06:35:27Z INFO JobServerQueue] Starting results-based upload queue...
+[2026-01-26 06:35:27Z INFO JobServerQueue] Start process timeline update queue.
+[2026-01-26 06:35:27Z INFO ExecutionContext] Initializing Job context
+[2026-01-26 06:35:27Z INFO ExecutionContext] Initialize GitHub context
+[2026-01-26 06:35:27Z INFO ExecutionContext] Initialize Env context
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:27Z INFO JobRunner] Starting the job execution context.
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:27Z INFO JobRunner] Validating directory permissions for: 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Tools': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_tool'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Temp': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp'
+[2026-01-26 06:35:27Z INFO JobRunner] Getting job extension.
+[2026-01-26 06:35:27Z INFO JobRunner] Initialize job. Getting all job steps.
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.credentials'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known config file 'SetupInfo': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\.setup_info'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:27Z INFO PipelineDirectoryManager] Loading tracking config if exists: C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_PipelineMapping\grissomm/web-app\PipelineFolder.json
+[2026-01-26 06:35:27Z INFO PipelineDirectoryManager] Updating job run properties.
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:27Z INFO JobExtension] Downloading actions
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:27Z INFO HostContext] Well known directory 'Actions': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions'
+[2026-01-26 06:35:27Z INFO Worker] Listening for cancel message from the channel.
+[2026-01-26 06:35:27Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2026-01-26 06:35:27Z INFO ResultServer] Successfully started websocket client.
+[2026-01-26 06:35:27Z INFO JobServerQueue] Try to append 1 batches web console lines for record '4b10cfff-2cf2-4ffa-a47c-870aebf4ed18', success rate: 1/1.
+[2026-01-26 06:35:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:28Z INFO HostContext] Well known directory 'Actions': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions'
+[2026-01-26 06:35:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:28Z INFO HostContext] Well known directory 'Actions': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions'
+[2026-01-26 06:35:28Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/checkout/zipball/34e114876b0b11c390a56381ad16ebd13914f8d5' into C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions\_temp_fec8057b-7598-44f0-a4fa-b25a24471e3c\ee6fc18b-52ac-40f9-a01f-6781ff02bd7a.zip.
+[2026-01-26 06:35:28Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2026-01-26 06:35:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record '4b10cfff-2cf2-4ffa-a47c-870aebf4ed18', success rate: 1/1.
+[2026-01-26 06:35:29Z INFO ActionManager] Request URL: https://api.github.com/repos/actions/checkout/zipball/34e114876b0b11c390a56381ad16ebd13914f8d5 X-GitHub-Request-Id: BF79:673E2:1EFEA7:4782C4:69770B31 Http Status: OK
+[2026-01-26 06:35:29Z INFO ActionManager] Finished getting action repository.
+[2026-01-26 06:35:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:29Z INFO HostContext] Well known directory 'Actions': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions'
+[2026-01-26 06:35:29Z INFO ActionManifestManagerLegacy] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2026-01-26 06:35:29Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2026-01-26 06:35:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:29Z INFO HostContext] Well known directory 'Actions': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions'
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-01-26 06:35:30Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Actions': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions'
+[2026-01-26 06:35:30Z INFO ActionManager] Load action that reference repository from 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions\actions\checkout\v4'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Actions': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions'
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-01-26 06:35:30Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-01-26 06:35:30Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-01-26 06:35:30Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-01-26 06:35:30Z INFO JobExtension] Adding .
+[2026-01-26 06:35:30Z INFO JobExtension] Adding .
+[2026-01-26 06:35:30Z INFO JobExtension] Adding .
+[2026-01-26 06:35:30Z INFO JobExtension] Adding .
+[2026-01-26 06:35:30Z INFO JobExtension] Adding .
+[2026-01-26 06:35:30Z INFO JobExtension] Adding .
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:30Z INFO JobExtension] Total accessible running process: 357.
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:30Z INFO JobExtension] Start checking server connectivity.
+[2026-01-26 06:35:30Z INFO JobExtension] Check server connectivity for https://broker.actions.githubusercontent.com/health.
+[2026-01-26 06:35:30Z INFO JobExtension] Check server connectivity for https://token.actions.githubusercontent.com/ready.
+[2026-01-26 06:35:30Z INFO JobExtension] Start checking service connectivity in background.
+[2026-01-26 06:35:30Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "4b10cfff-2cf2-4ffa-a47c-870aebf4ed18",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 3,
+  "startTime": "2026-01-26T06:35:27.1526888Z",
+  "finishTime": "2026-01-26T06:35:30.0616074Z"
+}.
+[2026-01-26 06:35:30Z INFO JobRunner] Total job steps: 6.
+[2026-01-26 06:35:30Z INFO JobRunner] Run all job steps.
+[2026-01-26 06:35:30Z INFO StepsRunner] Processing step: DisplayName='Checkout repository'
+[2026-01-26 06:35:30Z INFO StepsRunner] Evaluating: success()
+[2026-01-26 06:35:30Z INFO StepsRunner] Result: true
+[2026-01-26 06:35:30Z INFO StepsRunner] Starting the step.
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:30Z INFO StepsRunner] Which2: 'chcp'
+[2026-01-26 06:35:30Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper] Process started with process id 52900, waiting for process exit.
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper] Finished process 52900 with exit code 0, and elapsed time 00:00:00.0285738.
+[2026-01-26 06:35:30Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Actions': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions'
+[2026-01-26 06:35:30Z INFO ActionManager] Load action that reference repository from 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions\actions\checkout\v4'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Actions': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions'
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-01-26 06:35:30Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-01-26 06:35:30Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-01-26 06:35:30Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-01-26 06:35:30Z INFO ExecutionContext] Reserve record order 8 to 14 for post job actions.
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Temp': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp'
+[2026-01-26 06:35:30Z INFO ExecutionContext] Write event payload to C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Temp': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp'
+[2026-01-26 06:35:30Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "grissomm/web-app"
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'ref': default value evaluate result: ""
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'ssh-key': default value evaluate result: ""
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'ssh-known-hosts': default value evaluate result: ""
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'path': default value evaluate result: ""
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-26 06:35:30Z INFO ActionManifestManagerLegacy] Input 'github-server-url': default value evaluate result: ""
+[2026-01-26 06:35:30Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command error
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command group
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-01-26 06:35:30Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:30Z INFO HostContext] Well known directory 'Externals': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\externals'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\externals\node20\bin\node.exe'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\web-app\web-app'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-26 06:35:30Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-01-26 06:35:30Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag\blocks\56fa665e-273f-4d6a-9ed0-30516896eef0_4b10cfff-2cf2-4ffa-a47c-870aebf4ed18.1
+[2026-01-26 06:35:30Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-01-26 06:35:30Z INFO ProcessInvokerWrapper] Process started with process id 53328, waiting for process exit.
+[2026-01-26 06:35:30Z INFO JobServerQueue] Try to append 1 batches web console lines for record '4b10cfff-2cf2-4ffa-a47c-870aebf4ed18', success rate: 1/1.
+[2026-01-26 06:35:30Z INFO JobServerQueue] Try to append 1 batches web console lines for record '200b0512-c2f5-4657-9f44-8f8c5d391e16', success rate: 1/1.
+[2026-01-26 06:35:30Z INFO AddMaskCommandExtension] Add new secret mask with length of 76
+[2026-01-26 06:35:30Z INFO JobServerQueue] Try to append 1 batches web console lines for record '200b0512-c2f5-4657-9f44-8f8c5d391e16', success rate: 1/1.
+[2026-01-26 06:35:31Z INFO JobServerQueue] Try to append 1 batches web console lines for record '200b0512-c2f5-4657-9f44-8f8c5d391e16', success rate: 1/1.
+[2026-01-26 06:35:31Z INFO JobServerQueue] Try to append 1 batches web console lines for record '200b0512-c2f5-4657-9f44-8f8c5d391e16', success rate: 1/1.
+[2026-01-26 06:35:31Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-01-26 06:35:32Z INFO JobServerQueue] Try to append 1 batches web console lines for record '200b0512-c2f5-4657-9f44-8f8c5d391e16', success rate: 1/1.
+[2026-01-26 06:35:32Z INFO JobServerQueue] Try to append 1 batches web console lines for record '200b0512-c2f5-4657-9f44-8f8c5d391e16', success rate: 1/1.
+[2026-01-26 06:35:33Z INFO JobServerQueue] Try to append 1 batches web console lines for record '200b0512-c2f5-4657-9f44-8f8c5d391e16', success rate: 1/1.
+[2026-01-26 06:35:35Z INFO JobServerQueue] Try to append 1 batches web console lines for record '200b0512-c2f5-4657-9f44-8f8c5d391e16', success rate: 1/1.
+[2026-01-26 06:35:36Z INFO JobServerQueue] Try to append 1 batches web console lines for record '200b0512-c2f5-4657-9f44-8f8c5d391e16', success rate: 1/1.
+[2026-01-26 06:35:36Z INFO JobServerQueue] Try to append 1 batches web console lines for record '200b0512-c2f5-4657-9f44-8f8c5d391e16', success rate: 1/1.
+[2026-01-26 06:35:37Z INFO JobServerQueue] Try to append 1 batches web console lines for record '200b0512-c2f5-4657-9f44-8f8c5d391e16', success rate: 1/1.
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper] Finished process 53328 with exit code 0, and elapsed time 00:00:07.8987428.
+[2026-01-26 06:35:38Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp\_runner_file_commands\step_summary_6c7d2396-c05b-4d9c-895b-5e9ef00ce351) is empty; skipping attachment upload
+[2026-01-26 06:35:38Z INFO StepsRunner] Step result: 
+[2026-01-26 06:35:38Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Main",
+  "stepId": "200b0512-c2f5-4657-9f44-8f8c5d391e16",
+  "stepContextName": "__actions_checkout",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 8,
+  "startTime": "2026-01-26T06:35:30.0695492Z",
+  "finishTime": "2026-01-26T06:35:38.0665205Z"
+}.
+[2026-01-26 06:35:38Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-01-26 06:35:38Z INFO StepsRunner] Current state: job state = ''
+[2026-01-26 06:35:38Z INFO StepsRunner] Processing step: DisplayName='Pull latest code'
+[2026-01-26 06:35:38Z INFO StepsRunner] Evaluating: success()
+[2026-01-26 06:35:38Z INFO StepsRunner] Result: true
+[2026-01-26 06:35:38Z INFO StepsRunner] Starting the step.
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:38Z INFO StepsRunner] Which2: 'chcp'
+[2026-01-26 06:35:38Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper] Process started with process id 48212, waiting for process exit.
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper] Finished process 48212 with exit code 0, and elapsed time 00:00:00.0112069.
+[2026-01-26 06:35:38Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Temp': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp'
+[2026-01-26 06:35:38Z INFO ExecutionContext] Write event payload to C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Temp': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp'
+[2026-01-26 06:35:38Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-01-26 06:35:38Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command error
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command group
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-01-26 06:35:38Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-01-26 06:35:38Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-01-26 06:35:38Z INFO JobServerQueue] Try to append 1 batches web console lines for record '200b0512-c2f5-4657-9f44-8f8c5d391e16', success rate: 1/1.
+[2026-01-26 06:35:38Z INFO JobServerQueue] Try to append 1 batches web console lines for record '60abaa73-6541-4eb7-82e8-d75f706900dd', success rate: 1/1.
+[2026-01-26 06:35:38Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-01-26 06:35:38Z INFO ScriptHandler] Defaulting to powershell
+[2026-01-26 06:35:38Z INFO ScriptHandler] Which2: 'powershell'
+[2026-01-26 06:35:38Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:38Z INFO HostContext] Well known directory 'Temp': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp'
+[2026-01-26 06:35:38Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-01-26 06:35:38Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-01-26 06:35:38Z INFO ScriptHandler] Defaulting to powershell
+[2026-01-26 06:35:38Z INFO ScriptHandler] Which2: 'powershell'
+[2026-01-26 06:35:38Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp\a56723b7-47cb-4dec-ad8f-29cd53f6d709.ps1'"'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\web-app\web-app'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-26 06:35:38Z INFO ProcessInvokerWrapper] Process started with process id 36556, waiting for process exit.
+[2026-01-26 06:35:38Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-01-26 06:35:38Z INFO JobServerQueue] Try to append 1 batches web console lines for record '60abaa73-6541-4eb7-82e8-d75f706900dd', success rate: 1/1.
+[2026-01-26 06:35:38Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-01-26 06:35:38Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag\blocks\56fa665e-273f-4d6a-9ed0-30516896eef0_200b0512-c2f5-4657-9f44-8f8c5d391e16.1
+[2026-01-26 06:35:39Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] Finished process 36556 with exit code 0, and elapsed time 00:00:02.2698863.
+[2026-01-26 06:35:40Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp\_runner_file_commands\step_summary_c58160ba-8ce4-4868-b568-8494a24973ca) is empty; skipping attachment upload
+[2026-01-26 06:35:40Z INFO StepsRunner] Step result: 
+[2026-01-26 06:35:40Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "60abaa73-6541-4eb7-82e8-d75f706900dd",
+  "stepContextName": "__run",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 3,
+  "startTime": "2026-01-26T06:35:38.0677256Z",
+  "finishTime": "2026-01-26T06:35:40.3910882Z"
+}.
+[2026-01-26 06:35:40Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-01-26 06:35:40Z INFO StepsRunner] Current state: job state = ''
+[2026-01-26 06:35:40Z INFO StepsRunner] Processing step: DisplayName='Stop old Docker container if running'
+[2026-01-26 06:35:40Z INFO StepsRunner] Evaluating: success()
+[2026-01-26 06:35:40Z INFO StepsRunner] Result: true
+[2026-01-26 06:35:40Z INFO StepsRunner] Starting the step.
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:40Z INFO StepsRunner] Which2: 'chcp'
+[2026-01-26 06:35:40Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] Process started with process id 50076, waiting for process exit.
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] Finished process 50076 with exit code 0, and elapsed time 00:00:00.0181831.
+[2026-01-26 06:35:40Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Temp': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp'
+[2026-01-26 06:35:40Z INFO ExecutionContext] Write event payload to C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Temp': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp'
+[2026-01-26 06:35:40Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-01-26 06:35:40Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command error
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command group
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-01-26 06:35:40Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-01-26 06:35:40Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-01-26 06:35:40Z INFO ScriptHandler] Defaulting to powershell
+[2026-01-26 06:35:40Z INFO ScriptHandler] Which2: 'powershell'
+[2026-01-26 06:35:40Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Temp': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp'
+[2026-01-26 06:35:40Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-01-26 06:35:40Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-01-26 06:35:40Z INFO ScriptHandler] Defaulting to powershell
+[2026-01-26 06:35:40Z INFO ScriptHandler] Which2: 'powershell'
+[2026-01-26 06:35:40Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp\0f9d2ed3-2bf9-424a-9511-f07478433184.ps1'"'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\web-app\web-app'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-26 06:35:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record '60abaa73-6541-4eb7-82e8-d75f706900dd', success rate: 1/1.
+[2026-01-26 06:35:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'c7669725-3d89-4214-bf0a-e7db0fff6bd6', success rate: 1/1.
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] Process started with process id 58496, waiting for process exit.
+[2026-01-26 06:35:40Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-01-26 06:35:40Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag\blocks\56fa665e-273f-4d6a-9ed0-30516896eef0_60abaa73-6541-4eb7-82e8-d75f706900dd.1
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] Finished process 58496 with exit code 1, and elapsed time 00:00:00.4414542.
+[2026-01-26 06:35:40Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp\_runner_file_commands\step_summary_04273b49-98c3-433b-a307-0f7be4b40bfb) is empty; skipping attachment upload
+[2026-01-26 06:35:40Z INFO StepsRunner] Step result: Failed
+[2026-01-26 06:35:40Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "c7669725-3d89-4214-bf0a-e7db0fff6bd6",
+  "stepContextName": "__run_2",
+  "result": "failed",
+  "errorMessages": [
+    "Process completed with exit code 1."
+  ],
+  "executionTimeInSeconds": 1,
+  "startTime": "2026-01-26T06:35:40.3920921Z",
+  "finishTime": "2026-01-26T06:35:40.882308Z"
+}.
+[2026-01-26 06:35:40Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2026-01-26 06:35:40Z INFO StepsRunner] Current state: job state = 'Failed'
+[2026-01-26 06:35:40Z INFO StepsRunner] Processing step: DisplayName='Build Docker image'
+[2026-01-26 06:35:40Z INFO StepsRunner] Evaluating: success()
+[2026-01-26 06:35:40Z INFO StepsRunner] Result: false
+[2026-01-26 06:35:40Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2026-01-26 06:35:40Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2026-01-26 06:35:40Z INFO StepsRunner] Current state: job state = 'Failed'
+[2026-01-26 06:35:40Z INFO StepsRunner] Processing step: DisplayName='Run Docker container'
+[2026-01-26 06:35:40Z INFO StepsRunner] Evaluating: success()
+[2026-01-26 06:35:40Z INFO StepsRunner] Result: false
+[2026-01-26 06:35:40Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2026-01-26 06:35:40Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2026-01-26 06:35:40Z INFO StepsRunner] Current state: job state = 'Failed'
+[2026-01-26 06:35:40Z INFO StepsRunner] Processing step: DisplayName='Run CI test script'
+[2026-01-26 06:35:40Z INFO StepsRunner] Evaluating: success()
+[2026-01-26 06:35:40Z INFO StepsRunner] Result: false
+[2026-01-26 06:35:40Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2026-01-26 06:35:40Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2026-01-26 06:35:40Z INFO StepsRunner] Current state: job state = 'Failed'
+[2026-01-26 06:35:40Z INFO StepsRunner] Processing step: DisplayName='Post Checkout repository'
+[2026-01-26 06:35:40Z INFO StepsRunner] Evaluating: always()
+[2026-01-26 06:35:40Z INFO StepsRunner] Result: true
+[2026-01-26 06:35:40Z INFO StepsRunner] Starting the step.
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:40Z INFO StepsRunner] Which2: 'chcp'
+[2026-01-26 06:35:40Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] Process started with process id 58028, waiting for process exit.
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] Finished process 58028 with exit code 0, and elapsed time 00:00:00.0266956.
+[2026-01-26 06:35:40Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Actions': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions'
+[2026-01-26 06:35:40Z INFO ActionManager] Load action that reference repository from 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions\actions\checkout\v4'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Actions': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions'
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-01-26 06:35:40Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-01-26 06:35:40Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-01-26 06:35:40Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Temp': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp'
+[2026-01-26 06:35:40Z INFO ExecutionContext] Write event payload to C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Work': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Temp': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp'
+[2026-01-26 06:35:40Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "grissomm/web-app"
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'ref': default value evaluate result: ""
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'ssh-key': default value evaluate result: ""
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'ssh-known-hosts': default value evaluate result: ""
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'path': default value evaluate result: ""
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2026-01-26 06:35:40Z INFO ActionManifestManagerLegacy] Input 'github-server-url': default value evaluate result: ""
+[2026-01-26 06:35:40Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command error
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command group
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-01-26 06:35:40Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:40Z INFO HostContext] Well known directory 'Externals': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\externals'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] Starting process:
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\externals\node20\bin\node.exe'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\web-app\web-app'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-01-26 06:35:40Z INFO ProcessInvokerWrapper] Process started with process id 44532, waiting for process exit.
+[2026-01-26 06:35:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'c7669725-3d89-4214-bf0a-e7db0fff6bd6', success rate: 1/1.
+[2026-01-26 06:35:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e8c937e8-fc82-4e63-8723-c5e2df5c8b2b', success rate: 1/1.
+[2026-01-26 06:35:41Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2026-01-26 06:35:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e8c937e8-fc82-4e63-8723-c5e2df5c8b2b', success rate: 1/1.
+[2026-01-26 06:35:41Z INFO JobServerQueue] Try to upload 2 log files or attachments, success rate: 2/2.
+[2026-01-26 06:35:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e8c937e8-fc82-4e63-8723-c5e2df5c8b2b', success rate: 1/1.
+[2026-01-26 06:35:41Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-01-26 06:35:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e8c937e8-fc82-4e63-8723-c5e2df5c8b2b', success rate: 1/1.
+[2026-01-26 06:35:42Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-01-26 06:35:42Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag\blocks\56fa665e-273f-4d6a-9ed0-30516896eef0_c7669725-3d89-4214-bf0a-e7db0fff6bd6.1
+[2026-01-26 06:35:43Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-01-26 06:35:43Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e8c937e8-fc82-4e63-8723-c5e2df5c8b2b', success rate: 1/1.
+[2026-01-26 06:35:44Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:44Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-01-26 06:35:44Z INFO ProcessInvokerWrapper] Finished process 44532 with exit code 0, and elapsed time 00:00:03.8284638.
+[2026-01-26 06:35:44Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp\_runner_file_commands\step_summary_c4cf5352-04ed-4a28-b578-056859b3a693) is empty; skipping attachment upload
+[2026-01-26 06:35:44Z INFO StepsRunner] Step result: 
+[2026-01-26 06:35:44Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Post",
+  "stepId": "e8c937e8-fc82-4e63-8723-c5e2df5c8b2b",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 4,
+  "startTime": "2026-01-26T06:35:40.8855558Z",
+  "finishTime": "2026-01-26T06:35:44.7692808Z"
+}.
+[2026-01-26 06:35:44Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-01-26 06:35:44Z INFO StepsRunner] Current state: job state = 'Failed'
+[2026-01-26 06:35:44Z INFO JobRunner] Finalize job.
+[2026-01-26 06:35:44Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:44Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:44Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:44Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:44Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:44Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:44Z INFO JobExtension] Initialize Env context
+[2026-01-26 06:35:44Z INFO JobExtension] Initialize steps context
+[2026-01-26 06:35:44Z INFO JobExtension] Total accessible running process: 359.
+[2026-01-26 06:35:44Z INFO JobExtension] Inspecting process environment variables. PID: 26112 (chrome)
+[2026-01-26 06:35:44Z INFO JobExtension] Inspecting process environment variables. PID: 38656 (dllhost)
+[2026-01-26 06:35:44Z INFO JobExtension] Wait for all connectivity checks to finish.
+[2026-01-26 06:35:44Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2026-01-26 06:35:44Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2026-01-26 06:35:44Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "2ff0a397-584b-41d1-ae0d-cf6e90350f91",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2026-01-26T06:35:44.7755391Z",
+  "finishTime": "2026-01-26T06:35:44.8139302Z"
+}.
+[2026-01-26 06:35:44Z INFO JobRunner] Job result after all job steps finish: Failed
+[2026-01-26 06:35:44Z INFO JobRunner] Completing the job execution context.
+[2026-01-26 06:35:44Z INFO JobRunner] Shutting down the job server queue.
+[2026-01-26 06:35:44Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2026-01-26 06:35:45Z INFO JobServerQueue] All queue process task stopped.
+[2026-01-26 06:35:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2ff0a397-584b-41d1-ae0d-cf6e90350f91', success rate: 1/1.
+[2026-01-26 06:35:45Z INFO JobServerQueue] Web console line queue drained.
+[2026-01-26 06:35:45Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2026-01-26 06:35:45Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2026-01-26 06:35:45Z INFO JobServerQueue] File upload queue drained.
+[2026-01-26 06:35:45Z INFO JobServerQueue] Starting results-based upload queue...
+[2026-01-26 06:35:45Z INFO JobServerQueue] Uploading 3 file(s) in one shot through results service.
+[2026-01-26 06:35:45Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-01-26 06:35:45Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag\blocks\56fa665e-273f-4d6a-9ed0-30516896eef0_e8c937e8-fc82-4e63-8723-c5e2df5c8b2b.1
+[2026-01-26 06:35:46Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-01-26 06:35:46Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag\blocks\56fa665e-273f-4d6a-9ed0-30516896eef0_2ff0a397-584b-41d1-ae0d-cf6e90350f91.1
+[2026-01-26 06:35:47Z INFO JobServerQueue] Got a job log file to send to results service.
+[2026-01-26 06:35:47Z INFO JobServerQueue] Starting upload of job log file to results service ResultsLog, C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag\blocks\56fa665e-273f-4d6a-9ed0-30516896eef0_c6036803-160d-567f-98f6-89aea3fbd183.1
+[2026-01-26 06:35:48Z INFO JobServerQueue] Tried to upload 3 file(s) to results, success rate: 3/3.
+[2026-01-26 06:35:48Z INFO JobServerQueue] Results upload queue drained.
+[2026-01-26 06:35:48Z INFO JobServerQueue] Timeline update queue drained.
+[2026-01-26 06:35:48Z INFO JobServerQueue] Disposing job server ...
+[2026-01-26 06:35:48Z INFO JobServerQueue] Disposing results server ...
+[2026-01-26 06:35:48Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2026-01-26 06:35:48Z INFO TempDirectoryManager] Cleaning runner temp folder: C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_work\_temp
+[2026-01-26 06:35:48Z INFO HostContext] Well known directory 'Bin': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\bin'
+[2026-01-26 06:35:48Z INFO HostContext] Well known directory 'Root': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner'
+[2026-01-26 06:35:48Z INFO HostContext] Well known directory 'Diag': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag'
+[2026-01-26 06:35:48Z INFO HostContext] Well known config file 'Telemetry': 'C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app\actions-runner\_diag\.telemetry'
+[2026-01-26 06:35:48Z INFO JobRunner] Raising job completed against run service
+[2026-01-26 06:35:49Z INFO Worker] Job completed.

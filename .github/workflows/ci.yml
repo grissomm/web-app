@@ -19,8 +19,8 @@ jobs:
 
     - name: Stop old Docker container if running
       run: |
-        docker stop drama-app || true
-        docker rm drama-app || true
+        docker stop drama-app -ErrorAction SilentlyContinue
+        docker rm drama-app -ErrorAction SilentlyContinue
 
     - name: Build Docker image
       run: docker build --no-cache -t drama-app .
