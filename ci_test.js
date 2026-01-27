@@ -1,20 +1,40 @@
 const http = require("http");
-const server = require("./app"); // your express server
+const server = require("./app");
 
-const PORT = process.env.PORT || 3000;
+function waitForServer(port, retries = 5, delay = 500) {
+  return new Promise((resolve, reject) => {
+    const tryConnect = () => {
+      http.get({ hostname: "localhost", port, path: "/" }, (res) => {
+        if (res.statusCode === 200) {
+          resolve();
+        } else {
+          retry();
+        }
+      }).on("error", retry);
+    };
 
-http.get({ hostname: "localhost", port: PORT, path: "/" }, (res) => {
-  if (res.statusCode === 200) {
+    const retry = () => {
+      if (retries-- > 0) {
+        setTimeout(tryConnect, delay);
+      } else {
+        reject(new Error("Server not responding"));
+      }
+    };
+
+    tryConnect();
+  });
+}
+
+(async () => {
+  try {
+    console.log("Waiting for server...");
+    await waitForServer(3000);
     console.log("✓ Home Page OK");
     server.close();
-    process.exit(0); // pass
-  } else {
+    process.exit(0);
+  } catch (err) {
     console.error("✗ Home Page FAIL");
     server.close();
-    process.exit(1); // fail
+    process.exit(1);
   }
-}).on("error", () => {
-  console.error("✗ Home Page ERROR");
-  server.close();
-  process.exit(1);
-});
+})();
