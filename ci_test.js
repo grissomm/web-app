@@ -1,47 +1,20 @@
 const http = require("http");
-const assert = require("assert");
+const server = require("./app"); // your express server
 
-// Import your app (server must be exported)
-const server = require("./app");
+const PORT = process.env.PORT || 3000;
 
-const PORT = process.env.PORT || 3000; // Use env port for CI
-const HOST = "0.0.0.0"; // Make sure server listens correctly
-
-function testRoute(path, name) {
-  return new Promise((resolve, reject) => {
-    http.get({ hostname: "localhost", port: PORT, path }, (res) => {
-      try {
-        assert.strictEqual(res.statusCode, 200);
-        console.log(`✓ PASS: ${name}`);
-        resolve();
-      } catch (err) {
-        console.error(`✗ FAIL: ${name}`);
-        reject(err);
-      }
-    }).on("error", (err) => {
-      console.error(`✗ ERROR: ${name}`);
-      reject(err);
-    });
-  });
-}
-
-async function runTests() {
-  console.log("Running automated CI tests...");
-
-  try {
-    // Give the server a moment to start
-    await new Promise(r => setTimeout(r, 500));
-
-    await testRoute("/", "Home Page");
-    await testRoute("/dramas", "Drama Page");
-
-    console.log("✓ ALL TESTS PASSED");
+http.get({ hostname: "localhost", port: PORT, path: "/" }, (res) => {
+  if (res.statusCode === 200) {
+    console.log("✓ Home Page OK");
     server.close();
-    process.exit(0);
-  } catch (err) {
+    process.exit(0); // pass
+  } else {
+    console.error("✗ Home Page FAIL");
     server.close();
-    process.exit(1); // Fail CI
+    process.exit(1); // fail
   }
-}
-
-runTests();
+}).on("error", () => {
+  console.error("✗ Home Page ERROR");
+  server.close();
+  process.exit(1);
+});

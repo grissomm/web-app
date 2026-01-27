@@ -22,3 +22,9 @@ jobs:
 
     - name: Run CI test script
       run: node ci_test.js
+
+    - name: Trigger Render Deploy
+      if: success()  # only runs if all previous steps passed
+      run: |
+        curl -X POST https://api.render.com/deploy/srv-d5s14tq4d50c73d0bs7g?key=b39xSkR2IQM
+        echo "Render deploy triggered."
