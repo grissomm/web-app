@@ -4,34 +4,44 @@ const assert = require("assert");
 // Import your app (server must be exported)
 const server = require("./app");
 
-function testRoute(path, name, done) {
-  http.get(
-    { hostname: "localhost", port: 3000, path },
-    (res) => {
+const PORT = process.env.PORT || 3000; // Use env port for CI
+const HOST = "0.0.0.0"; // Make sure server listens correctly
+
+function testRoute(path, name) {
+  return new Promise((resolve, reject) => {
+    http.get({ hostname: "localhost", port: PORT, path }, (res) => {
       try {
         assert.strictEqual(res.statusCode, 200);
         console.log(`✓ PASS: ${name}`);
-        done();
+        resolve();
       } catch (err) {
         console.error(`✗ FAIL: ${name}`);
-        server.close();
-        process.exit(1);
+        reject(err);
       }
-    }
-  ).on("error", () => {
-    console.error(`✗ ERROR: ${name}`);
-    server.close();
-    process.exit(1);
+    }).on("error", (err) => {
+      console.error(`✗ ERROR: ${name}`);
+      reject(err);
+    });
   });
 }
 
-console.log("Running automated CI tests...");
+async function runTests() {
+  console.log("Running automated CI tests...");
 
-// Run test cases in order
-testRoute("/", "Home Page", () => {
-  testRoute("/dramas", "Drama Page", () => {
+  try {
+    // Give the server a moment to start
+    await new Promise(r => setTimeout(r, 500));
+
+    await testRoute("/", "Home Page");
+    await testRoute("/dramas", "Drama Page");
+
     console.log("✓ ALL TESTS PASSED");
     server.close();
     process.exit(0);
-  });
-});
+  } catch (err) {
+    server.close();
+    process.exit(1); // Fail CI
+  }
+}
+
+runTests();
