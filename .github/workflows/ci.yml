@@ -1,31 +1,24 @@
-name: Update Localhost Website
+name: CI Tests
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  update-localhost:
-    runs-on: self-hosted
+  test:
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Pull latest code
-      shell: powershell
-      run: git -C "C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app" pull origin main
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-    - name: Stop old Docker container if exists
-      shell: powershell
-      run: |
-        try { & docker stop drama-app } catch {}
-        try { & docker rm drama-app } catch {}
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
 
-    - name: Build Docker image
-      shell: powershell
-      run: docker build --no-cache -t drama-app "C:\Users\24049601\Downloads\RP\Semester 4\Mon - Tues DevOps Fundamentals - C270\Team2_Webapp\web-app"
-
-    - name: Run Docker container
-      shell: powershell
-      run: docker run -d -p 3000:3000 --name drama-app drama-app
+    - name: Install dependencies
+      run: npm install
 
     - name: Run CI test script
       run: node ci_test.js
