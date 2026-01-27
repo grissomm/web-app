@@ -19,7 +19,9 @@ let dramas = [
   { id:2, title: 'Falling into Your Smile', episode:31, genre: 'Gaming', country: 'China', 
     image:'https://hivemindedness.com/wp-content/uploads/2022/09/falling-into-your-smile-promo.jpg'},
   { id:3, title: 'Weak Hero Class', episode:8, genre: 'School', country: 'Korean', 
-    image:'https://i.mydramalist.com/pq2lr_4f.jpg'}
+    image:'https://i.mydramalist.com/pq2lr_4f.jpg'},
+  { id:4, title: 'Stranger Things', episode:34, genre: 'Sci-Fi', country: 'USA', 
+    image:'https://upload.wikimedia.org/wikipedia/en/b/b1/Stranger_Things_season_1.jpg' },
 ];
 
 let ratings = [];
