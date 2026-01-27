@@ -16,9 +16,7 @@ let dramas = [
   { id:2, title: 'Falling into Your Smile', episode:31, genre: 'Gaming', country: 'China', 
     image:'https://hivemindedness.com/wp-content/uploads/2022/09/falling-into-your-smile-promo.jpg'},
   { id:3, title: 'Weak Hero Class', episode:8, genre: 'School', country: 'Korean', 
-    image:'https://i.mydramalist.com/pq2lr_4f.jpg'},
-  { id:4, title: 'A Love So Beautiful', episode:24, genre: 'School', country: 'China', 
-    image:'https://upload.wikimedia.org/wikipedia/en/8/8c/A_Love_So_Beautiful_%28Web_series%29.jpg' }
+    image:'https://i.mydramalist.com/pq2lr_4f.jpg'}
 ];
 
 let ratings = [];
