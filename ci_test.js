@@ -5,14 +5,19 @@ const url = require("url");
 function testURL(testUrl, retries = 10, delay = 1000) { 
   return new Promise((resolve, reject) => {
     const tryConnect = () => {
-      const protocol = testUrl.startsWith("https") ? https : http;
-      protocol.get(testUrl, (res) => {
-        if (res.statusCode === 200) {
-          resolve();
-        } else {
-          retry();
-        }
-      }).on("error", retry);
+      try {
+        const parsedUrl = new URL(testUrl);
+        const protocol = parsedUrl.protocol === "https:" ? https : http;
+        protocol.get(parsedUrl, (res) => {
+          if (res.statusCode === 200) {
+            resolve();
+          } else {
+            retry();
+          }
+        }).on("error", retry);
+      } catch (err) {
+        retry();
+      }
     };
 
     const retry = () => {
