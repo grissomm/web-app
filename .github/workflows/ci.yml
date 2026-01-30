@@ -1,3 +1,5 @@
+name: CI Tests
+
 on:
   push:
     branches: [ "main" ]
@@ -5,6 +7,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -18,12 +21,32 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Start server in background
+    - name: Start server in background and wait for healthy 200
       run: |
         nohup node app.js > server.log 2>&1 & echo $! > server.pid
+        echo "Started node with PID $(cat server.pid). Showing last lines of server.log:"
+        tail -n 200 server.log || true
 
-    - name: Wait for server to be ready
-      run: npx wait-on --timeout 30000 http://localhost:3000
+        # Try up to 30 times (30s) to get HTTP 200 and print each attempt status
+        status="000"
+        for i in $(seq 1 30); do
+          status=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000 || echo "000")
+          echo "Attempt $i: HTTP $status"
+          if [ "$status" = "200" ]; then
+            echo "Server responded 200"
+            break
+          fi
+          sleep 1
+        done
+
+        if [ "$status" != "200" ]; then
+          echo "Server did not return HTTP 200. Dumping server.log and process list:"
+          echo "=== server.log ==="
+          cat server.log || true
+          echo "=== ps aux | grep node ==="
+          ps aux | grep node || true
+          exit 1
+        fi
 
     - name: Sanity check (show HTTP status)
       run: |
@@ -31,7 +54,6 @@ jobs:
         curl -v -I http://localhost:3000 || true
 
     - name: Run CI test script against local server
-      # Tell ci_test.js to test the already-running server (it won't start another one)
       env:
         TEST_URL: http://localhost:3000
       run: node ci_test.js
@@ -46,5 +68,5 @@ jobs:
       if: always()
       run: |
         if [ -f server.pid ]; then
-          kill $(cat server.pid) || true
-        fi
+          kill $(cat server.pid) || true](#)
+
