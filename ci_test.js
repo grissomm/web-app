@@ -42,6 +42,8 @@ function testURL(testUrl, retries = 10, delay = 1000) {
       const port = process.env.PORT || 3000;
       baseUrl = "http://localhost:" + port;
       console.log("Testing local server at " + baseUrl);
+      // Wait for server to be ready
+      await new Promise(resolve => setTimeout(resolve, 1000));
     }
     
     // Test home page
