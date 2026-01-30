@@ -8,14 +8,21 @@ function testURL(testUrl, retries = 10, delay = 1000) {
       try {
         const parsedUrl = new URL(testUrl);
         const protocol = parsedUrl.protocol === "https:" ? https : http;
-        protocol.get(parsedUrl, (res) => {
+        const req = protocol.get(parsedUrl, (res) => {
           if (res.statusCode === 200) {
             resolve();
           } else {
+            console.log("Got status " + res.statusCode + ", retrying...");
             retry();
           }
-        }).on("error", retry);
+        });
+        req.on("error", (err) => {
+          console.log("Request error: " + err.message + ", retrying...");
+          retry();
+        });
+        req.end();
       } catch (err) {
+        console.log("Exception: " + err.message + ", retrying...");
         retry();
       }
     };
