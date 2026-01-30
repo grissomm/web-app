@@ -1,10 +1,12 @@
 const http = require("http");
-const server = require("./app");
+const https = require("https");
+const url = require("url");
 
-function waitForServer(port, retries = 5, delay = 500) {
+function testURL(testUrl, retries = 10, delay = 1000) { 
   return new Promise((resolve, reject) => {
     const tryConnect = () => {
-      http.get({ hostname: "localhost", port, path: "/" }, (res) => {
+      const protocol = testUrl.startsWith("https") ? https : http;
+      protocol.get(testUrl, (res) => {
         if (res.statusCode === 200) {
           resolve();
         } else {
@@ -27,14 +29,35 @@ function waitForServer(port, retries = 5, delay = 500) {
 
 (async () => {
   try {
-    console.log("Waiting for server...");
-    await waitForServer(3000);
+    let baseUrl;
+    let server;
+    
+    // If TEST_URL is set, test against remote Render service
+    if (process.env.TEST_URL) {
+      baseUrl = process.env.TEST_URL;
+      console.log("Testing remote Render service at " + baseUrl);
+    } else {
+      // Otherwise, start local server and test it
+      server = require("./app");
+      const port = process.env.PORT || 3000;
+      baseUrl = "http://localhost:" + port;
+      console.log("Testing local server at " + baseUrl);
+    }
+    
+    // Test home page
+    await testURL(baseUrl + "/", 10, 1000);
     console.log("✓ Home Page OK");
-    server.close();
+    
+    // Test dramas page
+    await testURL(baseUrl + "/dramas", 10, 1000);
+    console.log("✓ Dramas Page OK");
+    
+    if (server) {
+      server.close();
+    }
     process.exit(0);
   } catch (err) {
-    console.error("✗ Home Page FAIL");
-    server.close();
+    console.error("✗ Test FAIL - " + err.message);
     process.exit(1);
   }
 })();
