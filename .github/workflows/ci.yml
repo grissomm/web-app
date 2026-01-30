@@ -55,7 +55,7 @@ jobs:
 
     - name: Run CI test script against local server
       env:
-        TEST_URL: http://localhost:3000
+        TEST_URL: http://127.0.0.1:3000
       run: node ci_test.js
 
     - name: Show server logs (always)
