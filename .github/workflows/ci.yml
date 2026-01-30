@@ -12,19 +12,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Install Node.js
+    - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: 18
 
     - name: Install dependencies
       run: npm install
-      
-    - name: Start server
-      run: node app.js
-
-    - name: Wait for server to be ready
-      run: npx wait-on http://localhost:3000
 
     - name: Run CI test script
       run: node ci_test.js
