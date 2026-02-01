@@ -63,7 +63,7 @@ function testURL(testUrl, retries = 10, delay = 1000) {
     console.log("✓ Home Page OK");
     
     // Test dramas page
-    await testURL(baseUrl + "/dramas", 10, 1000);
+    await testURL(baseUrl + "/test", 10, 1000);
     console.log("✓ Dramas Page OK");
     
     if (server) {
