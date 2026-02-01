@@ -71,9 +71,12 @@ jobs:
           kill $(cat server.pid) || true
         fi
 
-    - name: Trigger Render Deployment
-      if: success()   # only runs if all previous steps pass
-      run: |
-        curl -X POST "https://api.render.com/deploy/${{ secrets.RENDER_SERVICE_ID }}" \
-            -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
-            -H "Content-Type: application/json"
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test  # Only runs if test job succeeds
+    steps:
+      - name: Trigger Render Deployment
+        run: |
+          curl -X POST "https://api.render.com/deploy/${{ secrets.RENDER_SERVICE_ID }}" \
+               -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+               -H "Content-Type: application/json"
