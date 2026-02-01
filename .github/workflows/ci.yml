@@ -55,7 +55,7 @@ jobs:
 
     - name: Run CI test script against local server
       env:
-        TEST_URL: http://localhost:3000
+        TEST_URL: http://127.0.0.1:3000
       run: node ci_test.js
 
     - name: Show server logs (always)
@@ -70,3 +70,13 @@ jobs:
         if [ -f server.pid ]; then
           kill $(cat server.pid) || true
         fi
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Trigger Render Deployment
+        run: |
+          curl -X POST "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys" \
+              -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+              -H "Accept: application/json"
