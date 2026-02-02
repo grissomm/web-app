@@ -39,6 +39,94 @@ function testURL(testUrl, retries = 10, delay = 1000) {
   });
 }
 
+function testURLContains(testUrl, searchText, retries = 10, delay = 1000) {
+  return new Promise((resolve, reject) => {
+    const tryConnect = () => {
+      try {
+        const parsedUrl = new URL(testUrl);
+        const protocol = parsedUrl.protocol === "https:" ? https : http;
+        const req = protocol.get(parsedUrl, (res) => {
+          let data = '';
+          res.on('data', chunk => data += chunk);
+          res.on('end', () => {
+            if (res.statusCode === 200 && data.includes(searchText)) {
+              resolve();
+            } else if (res.statusCode !== 200) {
+              console.log("Got status " + res.statusCode + ", retrying...");
+              retry();
+            } else {
+              console.log("Content doesn't contain '" + searchText + "', retrying...");
+              retry();
+            }
+          });
+        });
+        req.on("error", (err) => {
+          console.log("Request error: " + err.message + ", retrying...");
+          retry();
+        });
+        req.end();
+      } catch (err) {
+        console.log("Exception: " + err.message + ", retrying...");
+        retry();
+      }
+    };
+
+    const retry = () => {
+      if (retries-- > 0) {
+        setTimeout(tryConnect, delay);
+      } else {
+        reject(new Error("Content validation failed"));
+      }
+    };
+
+    tryConnect();
+  });
+}
+
+function testURLNotContains(testUrl, searchText, retries = 10, delay = 1000) {
+  return new Promise((resolve, reject) => {
+    const tryConnect = () => {
+      try {
+        const parsedUrl = new URL(testUrl);
+        const protocol = parsedUrl.protocol === "https:" ? https : http;
+        const req = protocol.get(parsedUrl, (res) => {
+          let data = '';
+          res.on('data', chunk => data += chunk);
+          res.on('end', () => {
+            if (res.statusCode === 200 && !data.includes(searchText)) {
+              resolve();
+            } else if (res.statusCode !== 200) {
+              console.log("Got status " + res.statusCode + ", retrying...");
+              retry();
+            } else {
+              console.log("Content still contains '" + searchText + "', retrying...");
+              retry();
+            }
+          });
+        });
+        req.on("error", (err) => {
+          console.log("Request error: " + err.message + ", retrying...");
+          retry();
+        });
+        req.end();
+      } catch (err) {
+        console.log("Exception: " + err.message + ", retrying...");
+        retry();
+      }
+    };
+
+    const retry = () => {
+      if (retries-- > 0) {
+        setTimeout(tryConnect, delay);
+      } else {
+        reject(new Error("Content still contains unwanted text"));
+      }
+    };
+
+    tryConnect();
+  });
+}
+
 function postFormData(testUrl, formData, retries = 10, delay = 1000) {
   return new Promise((resolve, reject) => {
     const tryConnect = () => {
@@ -132,13 +220,13 @@ function postFormData(testUrl, formData, retries = 10, delay = 1000) {
     });
     console.log("✓ Add Drama OK");
     
-    // Verify drama was added
-    await testURL(baseUrl + "/dramas", 10, 1000);
-    console.log("✓ Drama List with Added Drama OK");
+    // Verify drama was added by checking page contains the title
+    await testURLContains(baseUrl + "/dramas", "Test Drama CI", 10, 1000);
+    console.log("✓ Drama List Contains Added Drama");
     
     // Test edit drama feature (edit the test drama with distinct name)
-    // Drama IDs are auto-incremented, so test drama should have highest ID
-    await postFormData(baseUrl + "/editDrama/5", {
+    // Drama IDs are auto-incremented, so test drama should have ID 4 (3 initial + 1 new)
+    await postFormData(baseUrl + "/editDrama/4", {
       title: "Test Drama CI - EDITED VERSION",
       episode: "10",
       genre: "Testing - Updated",
@@ -147,17 +235,17 @@ function postFormData(testUrl, formData, retries = 10, delay = 1000) {
     });
     console.log("✓ Edit Drama OK");
     
-    // Verify drama was edited
-    await testURL(baseUrl + "/dramas", 10, 1000);
-    console.log("✓ Drama List with Edited Drama OK");
+    // Verify drama was edited by checking for edited title
+    await testURLContains(baseUrl + "/dramas", "Test Drama CI - EDITED VERSION", 10, 1000);
+    console.log("✓ Drama List Contains Edited Drama");
     
     // Test delete drama feature (delete the test drama we just edited)
-    await postFormData(baseUrl + "/deleteDrama/5", {});
+    await postFormData(baseUrl + "/deleteDrama/4", {});
     console.log("✓ Delete Drama OK");
     
-    // Verify drama was deleted
-    await testURL(baseUrl + "/dramas", 10, 1000);
-    console.log("✓ Drama List After Delete OK");
+    // Verify drama was deleted by checking it no longer appears
+    await testURLNotContains(baseUrl + "/dramas", "Test Drama CI - EDITED VERSION", 10, 1000);
+    console.log("✓ Drama Successfully Removed from List");
     
     if (server) {
       server.close();
