@@ -1,4 +1,4 @@
-# Done by Yong En
+# Done by Yong En and Ieuan
 
 name: CI Tests
 
@@ -72,8 +72,6 @@ jobs:
         if [ -f server.pid ]; then
           kill $(cat server.pid) || true
         fi
-
-# Done by Ieuan
 
   deploy:
     runs-on: ubuntu-latest
