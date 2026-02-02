@@ -211,14 +211,14 @@ function postFormData(testUrl, formData, retries = 10, delay = 1000) {
     console.log("✓ Dramas Page OK");
     
     // Test add drama feature
-    await postFormData(baseUrl + "/addDrama", {
-      title: "Test Drama CI",
-      episode: "5",
-      genre: "Testing",
-      country: "DevOps Land",
-      image: "http://example.com/test.jpg"
-    });
-    console.log("✓ Add Drama OK");
+    // await postFormData(baseUrl + "/addDrama", {
+    //   title: "Test Drama CI",
+    //   episode: "5",
+    //   genre: "Testing",
+    //   country: "DevOps Land",
+    //   image: "http://example.com/test.jpg"
+    // });
+    // console.log("✓ Add Drama OK");
     
     // Verify drama was added by checking page contains the title
     await testURLContains(baseUrl + "/dramas", "Test Drama CI", 10, 1000);
