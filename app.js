@@ -18,7 +18,9 @@ let dramas = [
   { id:2, title: 'Falling into Your Smile', episode:31, genre: 'Gaming', country: 'China', 
     image:'https://hivemindedness.com/wp-content/uploads/2022/09/falling-into-your-smile-promo.jpg'},
   { id:3, title: 'Weak Hero Class', episode:8, genre: 'School', country: 'Korean', 
-    image:'https://i.mydramalist.com/pq2lr_4f.jpg'}
+    image:'https://i.mydramalist.com/pq2lr_4f.jpg'},
+  { id:4, title: 'A Love So Beautiful', episode:24, genre: 'Romance', country: 'China',
+    image:'https://m.media-amazon.com/images/M/MV5BMTY4ZGM3ZTItNzYyZi00ZjQyLTlkZTAtZGI3Y2JlZTIyMjYwXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_FMjpg_UX1000_.jpg'},
 ];
 
 let ratings = [];
@@ -165,3 +167,5 @@ const server = app.listen(PORT, '0.0.0.0', () => {
 });
 
 module.exports = server;
+
+// End of file
